@@ -1,0 +1,17 @@
+.navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.bg-transparent{
+    background-color: transparent;
+}
+.nav-link{
+    margin-left: 35px;
+    color: black !important;
+}
+.last3{
+    color: white !important;
+}

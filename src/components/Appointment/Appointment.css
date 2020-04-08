@@ -1,0 +1,17 @@
+.header{
+    height: 80vh;
+    background-size: cover;
+}
+.header .calendar-img{
+    height: 80vh;
+}
+.op-machine{
+    width: 100%;
+}
+.header h2{
+    color: #1CC7C1 !important;
+}
+.react-calendar__tile--active{
+    background: #1CC7C1 !important;
+    border-radius: 7px !important;
+}

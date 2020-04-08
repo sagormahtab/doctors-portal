@@ -1,0 +1,10 @@
+.header{
+    height: 80vh;
+    background-size: cover;
+}
+.header .banner{
+    height: 80vh;
+}
+.op-machine{
+    width: 100%;
+}
