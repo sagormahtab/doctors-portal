@@ -1,5 +1,6 @@
 import React from 'react';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -13,7 +14,7 @@ const NavBar = () => {
                         <div className="navbar-nav ml-auto">
                         <a className="nav-item nav-link" href="/">Home <span className="sr-only">(current)</span></a>
                         <a className="nav-item nav-link" href="/">About</a>
-                        <a className="nav-item nav-link" href="/">Doctors</a>
+                        <Link to="/doctor/dashboard"><span className="nav-item nav-link">Doctors</span></Link>
                         <a className="nav-item nav-link last3" href="/">Reviews</a>
                         <a className="nav-item nav-link last3" href="/">Blog</a>
                         <a className="nav-item nav-link last3" href="/">Contact Us</a>

@@ -4,3 +4,19 @@
 .card-body{
     text-align: center;
 }
+#customized-dialog-title{
+    color: #1CC7C1;
+    text-align: center;
+}
+.appointment-form input{
+    display: block;
+    width: 40vw;
+    padding: 10px;
+    margin-bottom: 2vh;
+    border-radius: 7px;
+    border: 1px solid lightgray;
+}
+.appointment-form input[type="submit"]{
+    width: 30%;
+    float: right;
+}

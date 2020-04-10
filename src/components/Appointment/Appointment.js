@@ -45,6 +45,9 @@ const Appointment = () => {
                     department.map(dpt =>
                         <Department
                         department = {dpt}
+                        month = {months[date.getMonth()]}
+                        date = {date.getDate()}
+                        year = {date.getFullYear()}
                         />
                     )
                 }
