@@ -3,7 +3,7 @@ import './Patient.css'
 
 const Patient = (props) => {
     console.log(props);
-    const {name, appointTime} = props.patient;
+    const {name, appointTime, serial, date, month, year, phone} = props.patient;
 
     function msToTime(duration) {
         let seconds = Math.floor((duration / 1000) % 60);
@@ -22,15 +22,36 @@ const Patient = (props) => {
     const time = msToTime(appointTime);
       
     return (
-        <div className="d-flex mb-3 justify-content-between align-items-center">
-            <p>{name}</p>
-            <p>{time}</p>
-            <div>
-                <select id="inputState" class="form-control">
-                    <option selected>Not Visited</option>
-                    <option>Visited</option>
-                </select>
-            </div>
+        <div>
+            {
+                props.allPatient ?
+                <div className="d-flex mb-3 justify-content-between align-items-center">
+                    <p>{serial}</p>
+                    <p>{date}-{month}-{year}</p>
+                    <p>{time}</p>
+                    <p>{name}</p>
+                    <p>{phone}</p>
+                    <button className="btn btn-info">View</button>
+                    <div>
+                        <select className="form-control inputState">
+                            <option defaultValue>Pending</option>
+                            <option>Approved</option>
+                            <option>Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+                :
+                <div className="d-flex mb-3 justify-content-between align-items-center">
+                    <p>{name}</p>
+                    <p>{time}</p>
+                    <div>
+                        <select className="form-control inputState">
+                            <option defaultValue>Not Visited</option>
+                            <option>Visited</option>
+                        </select>
+                    </div>
+                </div>
+            }
         </div>
     );
 };

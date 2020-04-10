@@ -47,14 +47,14 @@ const Appointments = () => {
                         <p className="text-muted">Schedule</p>
                         <p className="text-muted">Action</p>
                     </div>
-                    {
-                        <PatientList 
-                        patients={users}
-                        currDate = {date.getDate()}
-                        currMonth = {months[date.getMonth()]}
-                        currYear = {date.getFullYear()}
-                        />
-                    }
+
+                    <PatientList 
+                    patients={users}
+                    currDate = {date.getDate()}
+                    currMonth = {months[date.getMonth()]}
+                    currYear = {date.getFullYear()}
+                    />
+                    
                 </div>
             </div>
         </div>

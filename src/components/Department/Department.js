@@ -86,7 +86,6 @@ const Department = (props) => {
         .then(json => {
             handleClose();
             alert("Your appointment was successful. Your appointment ID is "+json._id);
-            console.log(json)
         })
     },[appointInfo])
     return (

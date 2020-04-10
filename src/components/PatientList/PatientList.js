@@ -3,6 +3,7 @@ import Patient from '../Patient/Patient';
 
 const PatientList = (props) => {
     const {patients, currDate, currMonth, currYear} = props;
+    console.log(props,props.currDate);
 
         let eliPatients = [];
     for(let i = 0; i < patients.length; i++){
@@ -10,14 +11,26 @@ const PatientList = (props) => {
             eliPatients = [...eliPatients, patients[i]];
         }
     }
+
+    for(let i = 0; i < patients.length; i++){
+        patients[i].serial = i + 1;
+    }
     return (
         <div>
             {
+                props.allPatient ?
+                patients.map(pt=>
+                    <Patient
+                    patient={pt}
+                    allPatient = {true}
+                    />
+                    ) :
                 eliPatients.map(pt=>
                     <Patient 
                     patient = {pt}
                     />
-                    )
+                    ) 
+                
             }
         </div>
     );
