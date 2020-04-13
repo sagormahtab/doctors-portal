@@ -19,6 +19,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import Appointments from "../Appointments/Appointments";
 import DashboardContent from "../DashboardContent/DashboardContent";
+import Prescription from "../Prescription/Prescription";
 
 const drawerWidth = 240;
 
@@ -144,6 +145,9 @@ function ResponsiveDrawer(props) {
             <Route path="/doctor/prescriptions" render={() => <div>Page prescription</div>} />
             <Route path="/doctor/setting" render={() => <div>Page setting</div>} />
             <Route path="/doctor/logout" render={() => <div>Page logout</div>} />
+            <Route path="/prescription/:_id">
+              <Prescription />
+            </Route>
           </Switch>
         </main>
       </BrowserRouter>

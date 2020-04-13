@@ -56,6 +56,8 @@ const Department = (props) => {
     const [appointInfo, setAppointInfo] = useState(null);
     const { register, handleSubmit, errors } = useForm();
     const {date, month, year} = props;
+    const prescription = false;
+    const action = "pending";
 
 
     const [open, setOpen] = React.useState(false);
@@ -68,11 +70,12 @@ const Department = (props) => {
 
     let appointTime;
     const onChange = (time, timeString) => {
-      appointTime = time._d.getTime();
+      console.log(time, timeString);
+      appointTime = time._d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
     }
 
     const onSubmit = data => {
-        setAppointInfo({...data, appointTime, date, month, year});
+        setAppointInfo({...data, appointTime, date, month, year, prescription, action});
       }
     useEffect(()=>{
         fetch('http://localhost:4200/appointment', {
