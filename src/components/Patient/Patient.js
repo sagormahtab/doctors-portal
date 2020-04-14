@@ -3,7 +3,6 @@ import './Patient.css'
 import { Link } from 'react-router-dom';
 
 const Patient = (props) => {
-    console.log(props);
     const {_id,name, appointTime, serial, date, month, year, phone,prescription} = props.patient;
 
     const time = appointTime;
@@ -20,8 +19,14 @@ const Patient = (props) => {
                     <p>{phone}</p>
                     {
                         prescription ?
-                        <Link to={"/prescription/"+_id}><button className="btn btn-info">View</button></Link> :
-                        <Link to={"/prescription/"+_id}><button className="btn btn-light">Not Added</button></Link>
+                        <Link to={{
+                            pathname:`/prescription/${_id}`,
+                            havePress: true
+                        }}><button className="btn btn-info">View</button></Link> :
+                        <Link to={{
+                            pathname:`/prescription/${_id}`,
+                            havePress: false
+                        }}><button className="btn btn-light">Not Added</button></Link>
                     }
                     <div>
                         <select className="form-control inputState">

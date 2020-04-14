@@ -20,6 +20,7 @@ import { Switch, Route, Link, BrowserRouter } from "react-router-dom";
 import Appointments from "../Appointments/Appointments";
 import DashboardContent from "../DashboardContent/DashboardContent";
 import Prescription from "../Prescription/Prescription";
+import App from "../../App";
 
 const drawerWidth = 240;
 
@@ -70,6 +71,13 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
+      <ListItem
+            button
+            component={Link}
+            to="/"
+          >
+          <ListItemText>Home</ListItemText>
+      </ListItem>
         {["Dashboard", "Appointments","Patients","Prescriptions","Setting","Logout"].map((text, index) => (
           <ListItem key={text} component={Link} to={"/doctor/" + text.toLowerCase()}>
             <ListItemIcon>
@@ -138,7 +146,7 @@ function ResponsiveDrawer(props) {
           <div className={classes.toolbar} />
 
           <Switch>
-            <Route exact path="/doctor/getAppointment" render={() => <div>Home Page</div>} />
+            <Route exact path="/"><App /> </Route>
             <Route path="/doctor/dashboard" render={() => <DashboardContent />} />
             <Route path="/doctor/appointments" render={() => <Appointments />} />
             <Route path="/doctor/patients" render={() => <div>Page patient</div>} />

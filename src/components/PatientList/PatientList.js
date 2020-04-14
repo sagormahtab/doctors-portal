@@ -3,7 +3,6 @@ import Patient from '../Patient/Patient';
 
 const PatientList = (props) => {
     const {patients, currDate, currMonth, currYear} = props;
-    console.log(props,props.currDate);
 
         let eliPatients = [];
     for(let i = 0; i < patients.length; i++){

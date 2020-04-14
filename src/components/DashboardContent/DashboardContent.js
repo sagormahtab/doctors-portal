@@ -12,7 +12,6 @@ const DashboardContent = () => {
                 setUsers(json)         
         })
     },[])
-    console.log(users);
 
     const tablet = [{name:"Pending Appointments", color: "bg-secondary"},
     {name:"Today's Appointment", color: "bg-success"},

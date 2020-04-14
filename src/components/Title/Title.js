@@ -8,39 +8,49 @@ const Title = (props) => {
     
     const { register, handleSubmit, errors } = useForm()
 
-    const requestSite1 = async data => {
-        let response = await fetch('http://localhost:4200/prescription/'+props._id, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-            })
-            let Data = await response.json()
-            return Data
-    }
-    
-    const requestSite2 = async data => {
-        let response = await fetch('http://localhost:4200/updateAppointment/'+props._id,{
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        let Data = await response.json()
-        return Data
-    }
-    
-    const onSubmit = data =>{
-        //data.preventDefault();
+    const onSubmit = data => {
         data.name = props.patient.name;
         setPrescription(data);
-        setUpdateData(sendObj);
         console.log(prescription,props._id);
-        requestSite1(data);
-        requestSite2(sendObj);
+        setUpdateData(sendObj);
     }
+    
+    const isFirstRun = useRef(true);
+        useEffect(()=>{
+            if (isFirstRun.current) {
+                isFirstRun.current = false;
+                return;
+              }
+            fetch('http://localhost:4200/prescription/'+props._id, {
+                    method: 'POST',
+                    body: JSON.stringify(prescription),
+                    headers: {
+                      "Content-type": "application/json; charset=UTF-8"
+                    }
+                  })
+                  .then(response => response.json())
+                  .then(json =>{
+                      console.log(json);
+                      alert("Prescription was successfully added for "+json.name);
+                    })
+        },[prescription, props._id])
+    
+        const isFirstRun2 = useRef(true);
+        useEffect( () => {
+            if (isFirstRun2.current) {
+                isFirstRun2.current = false;
+                return;
+              }
+            fetch('http://localhost:4200/updateAppointment/'+props._id,{
+                method: 'POST',
+                body: JSON.stringify(updateData),
+                headers: {
+                    "Content-type": "application/json; charset=UTF-8"
+                }
+            })
+            .then(response => response.json())
+            .then(json => console.log(json))
+          },[updateData,props._id])
 
     return (
         <div>
@@ -57,47 +67,3 @@ const Title = (props) => {
 };
 
 export default Title;
-
-
-// const onSubmit = data => {
-//     data.name = props.patient.name;
-//     setPrescription(data);
-//     console.log(prescription,props._id);
-//     //setUpdateData(sendObj);
-// }
-
-// const isFirstRun = useRef(true);
-//     useEffect(()=>{
-//         if (isFirstRun.current) {
-//             isFirstRun.current = false;
-//             return;
-//           }
-//         fetch('http://localhost:4200/prescription/'+props._id, {
-//                 method: 'POST',
-//                 body: JSON.stringify(prescription),
-//                 headers: {
-//                   "Content-type": "application/json; charset=UTF-8"
-//                 }
-//               })
-//               .then(response => response.json())
-//               .then(json =>{
-//                   console.log(json);
-//                 })
-//     },[prescription, props._id])
-
-//     const isFirstRun2 = useRef(true);
-//     useEffect( () => {
-//         if (isFirstRun2.current) {
-//             isFirstRun2.current = false;
-//             return;
-//           }
-//         fetch('http://localhost:4200/updateAppointment/'+props._id,{
-//             method: 'POST',
-//             body: JSON.stringify(updateData),
-//             headers: {
-//                 "Content-type": "application/json; charset=UTF-8"
-//             }
-//         })
-//         .then(response => response.json())
-//         .then(json => console.log(json))
-//       },[updateData,props._id])
