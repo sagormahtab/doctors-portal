@@ -10,7 +10,7 @@ const Prescription = () => {
     useEffect(()=>{
         if(havePress)
             return;
-        fetch('http://localhost:4200/prescription/'+_id)
+        fetch('https://immense-inlet-46501.herokuapp.com/prescription/'+_id)
         .then(response => response.json())
         .then(json => setPatient(json))
     },[_id, havePress])
@@ -18,7 +18,7 @@ const Prescription = () => {
     useEffect(()=>{
         if(!havePress)
             return;
-        fetch('http://localhost:4200/getPrescription/'+_id)
+        fetch('https://immense-inlet-46501.herokuapp.com/getPrescription/'+_id)
         .then(response => response.json())
         .then(json => setGetPrescription(json))
     },[_id, havePress])

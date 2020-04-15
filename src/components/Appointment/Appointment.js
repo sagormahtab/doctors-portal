@@ -19,7 +19,7 @@ const Appointment = () => {
     };
 
     useEffect(()=>{
-        fetch('http://localhost:4200/department')
+        fetch('https://immense-inlet-46501.herokuapp.com/department')
         .then(response => response.json())
         .then(json => setDepartment(json))
     },[])

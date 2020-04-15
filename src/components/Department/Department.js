@@ -78,7 +78,7 @@ const Department = (props) => {
         setAppointInfo({...data, appointTime, date, month, year, prescription, action});
       }
     useEffect(()=>{
-        fetch('http://localhost:4200/appointment', {
+        fetch('https://immense-inlet-46501.herokuapp.com/appointment', {
             method: 'POST',
             body: JSON.stringify(appointInfo),
             headers: {

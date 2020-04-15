@@ -21,7 +21,7 @@ const Title = (props) => {
                 isFirstRun.current = false;
                 return;
               }
-            fetch('http://localhost:4200/prescription/'+props._id, {
+            fetch('https://immense-inlet-46501.herokuapp.com/prescription/'+props._id, {
                     method: 'POST',
                     body: JSON.stringify(prescription),
                     headers: {
@@ -41,7 +41,7 @@ const Title = (props) => {
                 isFirstRun2.current = false;
                 return;
               }
-            fetch('http://localhost:4200/updateAppointment/'+props._id,{
+            fetch('https://immense-inlet-46501.herokuapp.com/updateAppointment/'+props._id,{
                 method: 'POST',
                 body: JSON.stringify(updateData),
                 headers: {

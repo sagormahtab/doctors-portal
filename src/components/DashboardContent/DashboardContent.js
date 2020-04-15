@@ -6,7 +6,7 @@ const DashboardContent = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:4200/appointment')
+        fetch('https://immense-inlet-46501.herokuapp.com/appointment')
             .then(response => response.json())
             .then(json => {
                 setUsers(json)         
