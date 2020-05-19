@@ -1,4 +1,4 @@
-# Doctor Portal
+# Doctors Portal
 
 Check the live site here [Doctors Portal](https://doctors-portal-fnp.netlify.app/)
 
