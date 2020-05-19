@@ -24,8 +24,8 @@ Library & Framework:
 - Bootstrap
 - **React**
 - React Router
-- Material UI
-- Ant Design
+- **Material UI**
+- **Ant Design**
 - ExpressJS
 
 Database: **MongoDB**
